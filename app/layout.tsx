@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -97,6 +98,7 @@ export default function RootLayout({
             &copy; {new Date().getFullYear()} Echo &amp; Insight &mdash; <a href="https://echoinsight.in" className="hover:text-primary-400 transition-colors">echoinsight.in</a>. All rights reserved.
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
