@@ -1,0 +1,86 @@
+# Problem Statement: Professional Booking Website
+
+## 1. Project Objective
+To design and develop a professional, highly responsive, and aesthetically premium personal portfolio and appointment booking website for a mental healthcare professional (using the dummy name "Dr. Aiden Wright"). The website's design, layout, and page structure should be optimized for mental health services. The core focus of the website is to establish a strong professional online presence and streamline the process of collecting client/patient enquiries and scheduling appointments seamlessly.
+
+## 2. Target Audience
+Individuals seeking professional mental health services, consultations, or therapy who need a straightforward and reliable way to learn about the professional's credentials and book a time slot.
+
+## 3. Site Structure & Layout (Paths)
+The website will feature modern, rich aesthetics with a dynamic design (smooth transitions, hover effects) and will include the following core pages/paths:
+- **Home (`/`)**: A welcoming landing page featuring a professional hero section with ambient background videos or dedicated video sections showing mental healthcare and well-being, a brief introduction to Dr. Aiden Wright, a key services overview, and a prominent Call-to-Action (CTA) to "Book an Appointment".
+- **About (`/about`)**: A detailed profile highlighting qualifications, experience, philosophy, and professional journey.
+- **Services (`/services`)**: A comprehensive list and description of mental health services/consultations offered.
+- **Book Appointment (`/book`)**: The core interactive page for scheduling consultations, featuring the calendar integration and rate card.
+- **Contact (`/contact`)**: General contact information, location map, and a general inquiry form.
+- **Admin Dashboard (`/admin`)**: A secure, private portal for the professional to manage bookings, view financial reports, and configure system settings.
+
+## 4. Core Features & Functional Requirements
+
+### 4.1. Enquiry & Lead Collection
+The website must feature an Enquiry Form (accessible via the Contact page or a modal) to capture potential leads. 
+- **Form Fields Required**:
+  - Name & Surname
+  - Location (Dropdown for States of India; if New Delhi is selected, show a dropdown for major Districts)
+  - Mobile Number (Must start with +91)
+  - Email Address
+  - Remarks / Message
+
+### 4.2. Automated Notifications (Enquiries & Appointments)
+Upon successful submission of a general enquiry, the system must trigger real-time alerts:
+- **Email Notification**: Send an automated email with the user's details to the admin/professional's email address (`ridhi.mentalhealthpractitioner@gmail.com`).
+- **WhatsApp Notification**: Send an automated WhatsApp message to the admin/professional's registered mobile number (`+91-9910043799`) containing the enquiry details.
+
+**New Appointment Notifications & Reminders**:
+- Send an email notification for any new appointment to `ridhi.mentalhealthpractitioner@gmail.com`.
+- Send an automated appointment reminder **30 minutes** before the scheduled start time to both the patient and the admin via WhatsApp and Email.
+
+### 4.3. Appointment Booking & Google Calendar Integration
+The booking system is a critical component and must be fully integrated with Google Calendar to ensure real-time synchronization of availability.
+- **Availability Window**: Show available slots for the upcoming 1 month.
+- **Working Days**: Monday to Saturday.
+- **Working Hours**: 9:00 AM to 9:00 PM.
+- **Real-time Sync**: The system must read the professional's Google Calendar to block out times that are already booked or marked as busy, displaying only genuinely available slots to the user.
+
+### 4.4. Consultation Durations & Rate Card
+Users must be able to select their preferred consultation duration before picking a time slot. The pricing is structured as follows:
+- **45 Minutes**: 1200 INR
+- **60 Minutes**: 1500 INR
+- **90 Minutes**: 2000 INR
+- *Note: All stated prices are exclusive of applicable taxes ("Taxes Extra").*
+
+### 4.5. Payment Gateway Integration (UPI)
+Upon selecting a time slot and duration, the patient must be redirected to a payment gateway to complete the transaction.
+- **Payment Method**: The gateway must support direct payments to the professional's UPI ID.
+- **Confirmation & Notifications**: Only upon a **successful payment**:
+  - The appointment is officially confirmed and blocked on the Google Calendar.
+  - An appointment confirmation is sent to the **Patient** via Email and WhatsApp.
+  - An appointment confirmation is sent to the **Professional** via Email and WhatsApp.
+
+### 4.6. Admin Dashboard & Management
+A secure, authenticated backend portal accessible only to the admin/professional. It must include:
+- **Authentication**: Secure Google Login functionality. Access is strictly limited to the specific email address `ridhi.mentalhealthpractitioner@gmail.com`.
+- **Booking Management**: 
+  - Dashboard to display all upcoming (future) bookings.
+  - Comprehensive history log of all past bookings with full patient details.
+- **Reporting & Analytics**: Month-wise sales and revenue reports.
+- **Patient/User Search**: Ability to search for specific users or bookings using their Mobile Number or Email-ID.
+- **Settings Configuration**: An interface to securely change/update the UPI-ID to which all payments are routed.
+
+## 5. Technical Considerations (Recommended)
+- **Frontend**: A modern framework like Next.js or Vite (React) utilizing Vanilla CSS for maximum design flexibility, ensuring a premium, vibrant, and interactive user experience.
+- **Backend / API**: Node.js or Serverless functions (e.g., Next.js API routes) to securely handle form submissions and admin authenticated routes.
+- **Integrations**: 
+  - *Google Calendar API* for slot management.
+  - *Payment Gateway API* (e.g., Razorpay, Cashfree, or PhonePe) configured to settle directly to a UPI ID.
+  - *Twilio / WhatsApp Business API* for WhatsApp notifications.
+  - *SendGrid / Nodemailer* for email delivery.
+- **Design Guidelines**: Implement modern typography (Google Fonts), curated color palettes (not generic), smooth gradients, and subtle micro-animations to create a "wow" factor upon first glance.
+
+## 6. Success Criteria
+- A fully functional, bug-free website that accurately reflects the professional brand.
+- 100% accurate synchronization with Google Calendar without double-booking.
+- Reliable delivery of Email and WhatsApp notifications within seconds of form submission.
+- Flawless UPI payment gateway integration preventing unconfirmed appointments.
+- A secure, functional Admin Dashboard providing full visibility into operations and finances.
+- A visually stunning and responsive design across all devices (mobile, tablet, desktop).

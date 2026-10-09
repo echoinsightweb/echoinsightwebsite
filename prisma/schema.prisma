@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Booking {
+  id                 String  @id @default(cuid())
+  sessionType        String // "free" or "paid"
+  salutation         String
+  name               String
+  mobile             String
+  email              String
+  state              String
+  district           String
+  serviceType        String?
+  duration           String?
+  date               String
+  time               String
+  remarks            String?
+  status             String  @default("PENDING")
+  amount             Int? // Stored in smallest currency unit (e.g., paise for INR)
+  paymentStatus      String  @default("PENDING") // Tracks UPI specific status separately
+  paymentOrderId     String? // The order ID created before payment
+  paymentReferenceId String? // The success reference/transaction ID from the gateway
+  upiRrn             String? // 12-digit Bank Retrieval Reference Number
+  customerVpa        String? // The payer's UPI ID (e.g., user@okhdfcbank)
+  paymentRawResponse Json? // Stores the full webhook payload for debugging/disputes
+
+  // Integrations
+  googleEventId   String? // ID of the event in Google Calendar
+  rescheduleToken String? @unique // Secure token for users to access the reschedule page
+
+  // Reschedule Request Data
+  rescheduleCount         Int     @default(0) // Track how many times it was rescheduled
+  rescheduleStatus        String? // e.g., "REQUESTED", "APPROVED", "REJECTED"
+  rescheduleRequestedDate String?
+  rescheduleRequestedTime String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CorporateEnquiry {
+  id               String   @id @default(cuid())
+  salutation       String
+  name             String
+  corporateName    String
+  mobile           String
+  email            String
+  state            String
+  district         String
+  requirementBrief String
+  status           String   @default("NEW")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ContactMessage {
+  id         String   @id @default(cuid())
+  salutation String
+  name       String
+  mobile     String
+  email      String
+  state      String
+  district   String
+  remarks    String
+  status     String   @default("UNREAD")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
