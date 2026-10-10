@@ -25,10 +25,17 @@ function PaymentStatusContent() {
                setStatus(data.status);
                clearInterval(interval);
             } else if (attempts >= maxAttempts) {
+               setStatus("FAILED");
                clearInterval(interval);
             }
          })
-         .catch(err => console.error(err));
+         .catch(err => {
+            console.error(err);
+            if (attempts >= maxAttempts) {
+               setStatus("FAILED");
+               clearInterval(interval);
+            }
+         });
     }, 2000);
 
     return () => clearInterval(interval);
