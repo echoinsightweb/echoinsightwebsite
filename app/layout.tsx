@@ -39,7 +39,7 @@ export default function RootLayout({
 
         {/* Footer */}
         <footer className="bg-secondary-900 text-secondary-50 py-12 mt-20 border-t border-secondary-500/20">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4 text-primary-100">Echo &amp; Insight</h3>
               <p className="text-secondary-500 mb-4 max-w-sm">
@@ -53,6 +53,14 @@ export default function RootLayout({
                 <Link href="/book" className="hover:text-white transition-colors">Book a Session</Link>
                 <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
                 <Link href="/admin/login" className="hover:text-white transition-colors">Professional Portal</Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4 text-primary-100">Legal</h4>
+              <div className="flex flex-col gap-2 text-secondary-500">
+                <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+                <Link href="/cancellation-policy" className="hover:text-white transition-colors">Cancellation & Refund Policy</Link>
               </div>
             </div>
             <div>
