@@ -21,7 +21,7 @@ The application will follow a **modern serverless architecture** utilizing a uni
 
 ### 2.1. Frontend Architecture
 The client-side will be structured into reusable React components and segregated into public and admin areas:
-- **Public Pages**: `/` (Home), `/about`, `/services`, `/book`, `/contact`
+- **Public Pages**: `/` (Home), `/about`, `/services`, `/book`, `/contact`, `/cancellation-policy`, `/terms-and-conditions`, `/privacy-policy`.
 - **Admin Pages**: `/admin/login`, `/admin/dashboard` (Upcoming Bookings), `/admin/history` (All Bookings), `/admin/reports` (Month-wise Sales), `/admin/settings` (UPI Configuration).
 - **UI Components**: `HeroVideo`, `ServiceCard`, `CalendarWidget`, `TimeSlotPicker`, `EnquiryForm`, `NotificationToast`, `AdminSidebar`, `DataTables`, `SalesChart`.
 - **State Management**: React Context API (or Zustand) for managing booking flow state and admin authentication state.
