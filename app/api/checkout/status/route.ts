@@ -28,14 +28,17 @@ export async function GET(req: Request) {
 
         
         if (orderStatus === "PAID") {
-          await prisma.booking.update({
-            where: { id: booking.id },
-            data: { status: "CONFIRMED", paymentStatus: "SUCCESS" }
-          });
+          // Fetch payment details to capture UPI RRN and VPA
+          const paymentsRes = await Cashfree.PGOrderFetchPayments(orderId);
+          const paymentData = paymentsRes?.data?.[0] || {};
+          
+          const { fulfillBooking } = await import("@/lib/fulfillment");
+          await fulfillBooking(booking.id, paymentData);
+
           return NextResponse.json({ success: true, status: "SUCCESS" });
         } else if (orderStatus === "EXPIRED" || orderStatus === "TERMINATED") {
-          await prisma.booking.update({
-            where: { id: booking.id },
+          await prisma.booking.updateMany({
+            where: { id: booking.id, paymentStatus: "PENDING" },
             data: { paymentStatus: "FAILED" }
           });
           return NextResponse.json({ success: true, status: "FAILED" });
