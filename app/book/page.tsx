@@ -13,7 +13,8 @@ export default function BookAppointmentPage() {
   const [cashfree, setCashfree] = useState<any>(null);
 
   useEffect(() => {
-    load({ mode: "sandbox" }).then((cf: any) => setCashfree(cf));
+    const mode = process.env.NEXT_PUBLIC_CASHFREE_ENVIRONMENT === "PRODUCTION" ? "production" : "sandbox";
+    load({ mode }).then((cf: any) => setCashfree(cf));
     if (typeof window !== "undefined") {
       const searchParams = new URLSearchParams(window.location.search);
       if (searchParams.get("type") === "free") {
