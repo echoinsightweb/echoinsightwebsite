@@ -49,6 +49,7 @@ Based on the system architecture and problem statement, this document outlines t
   - Create `POST /api/checkout/create-order` to initialize a payment session via Cashfree API v3, dynamically linking to the Booking ID.
   - Create a secure webhook endpoint `POST /api/webhooks/payment` to listen for real-time payment success or failure events, validated strictly using `HMAC-SHA256` signature checking against Cashfree's `x-webhook-signature`.
   - Implement polling on the frontend `/book/status` page to continuously ping `/api/checkout/status`, which proactively triggers `Cashfree.PGFetchOrder` for instant reconciliation or gracefully times out after 30 seconds if the user abandons the payment window.
+  - **Fulfillment & Idempotency**: Extracted `lib/fulfillment.ts` to ensure that either the Webhook or the Polling endpoint (whichever succeeds first) uses an atomic Prisma `updateMany` lock. This guarantees the Google Calendar event and Email/WhatsApp notifications are triggered exactly once, and captures `upiRrn`, `cf_payment_id`, and `customerVpa` directly from Cashfree.
   - Required Environment Variables: `CASHFREE_APP_ID`, `CASHFREE_SECRET_KEY`, `CASHFREE_ENVIRONMENT`, and `NEXT_PUBLIC_CASHFREE_ENVIRONMENT`.
 
 ## Phase 5: Admin Dashboard Features & Manual Operations [COMPLETED - Including latest payment/reschedule updates]

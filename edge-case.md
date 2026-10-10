@@ -59,9 +59,10 @@ This document outlines all potential corner scenarios and edge cases based on th
 *   **Dynamic UPI-ID Change:** The Admin changes the target UPI-ID exactly while a user is in the middle of a checkout session.
 
 ### Webhook Reliability & Status Checks
+*   **Race Conditions (Duplicate Fulfillment):** Both the frontend status poll and the background Cashfree Webhook execute simultaneously when a payment succeeds. (Resolved by `lib/fulfillment.ts` utilizing an atomic Prisma `updateMany` where `paymentStatus === 'PENDING'`. The first process to lock the row fulfills the Google Calendar/Emails exactly once, preventing duplicate invites and emails).
 *   **Abandoned Payments:** User opens the Cashfree checkout window but closes it or cancels without paying. Cashfree does not send a webhook immediately, leaving the database stuck in `PENDING`. (Resolved by adding a 30-second client-side polling timeout in `/book/status`, coupled with a proactive `Cashfree.PGFetchOrder` backend API check to determine the exact status rather than solely relying on webhooks).
 *   **Delayed Webhooks:** User completes payment, but the webhook is delayed by several minutes. User leaves the site without seeing a confirmation screen. (Resolved by the proactive `/api/checkout/status` check fetching the real-time order status directly from Cashfree).
-*   **Duplicate Webhooks:** The payment gateway sends the same successful webhook event multiple times.
+*   **Duplicate Webhooks:** The payment gateway sends the same successful webhook event multiple times. (Resolved by the same atomic `updateMany` lock).
 *   **Missed Webhooks:** The webhook fails to reach the server due to network issues (need a cron job to poll/reconcile "Pending" appointments that might have succeeded).
 *   **Security:** Malicious actors sending spoofed webhook requests to `/api/webhooks/payment` to falsely confirm appointments. (Resolved via HMAC-SHA256 signature verification matching `x-webhook-signature`).
 *   **Partial/Over Payments:** The user pays an amount different from the requested amount.
