@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { load } from "@cashfreepayments/cashfree-js";
 
 type SessionType = "free" | "paid";
 
@@ -9,8 +10,10 @@ export default function BookAppointmentPage() {
   const [availableDates, setAvailableDates] = useState<{dateStr: string, dayName: string, dayNum: number, monthName: string}[]>([]);
   const [busySlots, setBusySlots] = useState<{start: string, end: string}[]>([]);
   const [fetchingSlots, setFetchingSlots] = useState(false);
+  const [cashfree, setCashfree] = useState<any>(null);
 
   useEffect(() => {
+    load({ mode: "sandbox" }).then((cf: any) => setCashfree(cf));
     if (typeof window !== "undefined") {
       const searchParams = new URLSearchParams(window.location.search);
       if (searchParams.get("type") === "free") {
@@ -99,7 +102,24 @@ export default function BookAppointmentPage() {
       const data = await res.json();
       
       if (data.success) {
-        setStatus("success");
+        if (sessionType === "free") {
+          setStatus("success");
+        } else {
+          const orderRes = await fetch("/api/checkout/create-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ bookingId: data.bookingId })
+          });
+          const orderData = await orderRes.json();
+          if (orderData.success && cashfree) {
+            cashfree.checkout({
+              paymentSessionId: orderData.paymentSessionId,
+              redirectTarget: "_self"
+            });
+          } else {
+            setStatus("error");
+          }
+        }
       } else {
         setStatus("error");
       }

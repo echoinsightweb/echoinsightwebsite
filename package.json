@@ -11,9 +11,11 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@cashfreepayments/cashfree-js": "^1.0.7",
     "@upstash/ratelimit": "^2.2.0",
     "@upstash/redis": "^1.39.0",
     "@vercel/analytics": "^2.0.1",
+    "cashfree-pg": "^6.0.6",
     "googleapis": "^184.0.0",
     "lucide-react": "^1.52.0",
     "next": "16.3.5",

@@ -22,46 +22,52 @@ export async function POST(req: Request) {
   try {
     const rawBody = await req.text();
     const signature = req.headers.get("x-webhook-signature");
-    const secret = process.env.PAYMENT_WEBHOOK_SECRET;
+    const timestamp = req.headers.get("x-webhook-timestamp");
+    const secret = process.env.CASHFREE_SECRET_KEY;
 
-    if (!secret) {
-      console.warn("PAYMENT_WEBHOOK_SECRET is not configured. Skipping signature verification.");
-    } else if (signature) {
+    if (secret && signature && timestamp) {
+      const data = timestamp + rawBody;
       const expectedSignature = crypto
         .createHmac("sha256", secret)
-        .update(rawBody)
-        .digest("hex");
+        .update(data)
+        .digest("base64");
         
       if (signature !== expectedSignature) {
          return NextResponse.json({ success: false, message: "Invalid signature" }, { status: 401 });
       }
+    } else if (secret) {
+       return NextResponse.json({ success: false, message: "Missing signature" }, { status: 401 });
     }
 
-    const data = JSON.parse(rawBody);
+    const payload = JSON.parse(rawBody);
     
-    // Simulate payment success event validation
-    const { bookingId, paymentStatus, paymentReferenceId, upiRrn, customerVpa, rawResponse } = data;
-
-    if (paymentStatus !== "SUCCESS") {
+    if (payload.type !== "PAYMENT_SUCCESS_WEBHOOK") {
       return NextResponse.json({ success: true, message: "Ignored non-success webhook" });
     }
 
+    const order_id = payload.data?.order?.order_id;
+    const payment = payload.data?.payment;
+
+    if (!order_id || !payment) {
+      return NextResponse.json({ success: false, message: "Invalid payload format" }, { status: 400 });
+    }
+
     // 1. Fetch current booking to ensure it exists and get its details
-    const existingBooking = await prisma.booking.findUnique({ where: { id: bookingId } });
+    const existingBooking = await prisma.booking.findFirst({ where: { paymentOrderId: order_id } });
     if (!existingBooking) {
       return NextResponse.json({ success: false, message: "Booking not found" }, { status: 404 });
     }
 
     // 2. Update Booking Status
     const booking = await prisma.booking.update({
-      where: { id: bookingId },
+      where: { id: existingBooking.id },
       data: {
         status: "CONFIRMED",
         paymentStatus: "SUCCESS",
-        paymentReferenceId,
-        upiRrn,
-        customerVpa,
-        paymentRawResponse: rawResponse || {},
+        paymentReferenceId: payment.cf_payment_id?.toString(),
+        upiRrn: payment.bank_reference,
+        customerVpa: payment.payment_method?.upi?.channel || payment.payment_method?.upi?.upi_id,
+        paymentRawResponse: payload,
       },
     });
 
