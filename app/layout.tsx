@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { Analytics } from "@vercel/analytics/next";
+import Navbar from "@/components/Navbar";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -29,38 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.className} min-h-screen flex flex-col antialiased bg-background text-foreground`}>
-        {/* Navigation */}
-        <header className="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
-          <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity" aria-label="Echo & Insight Home">
-              <Image
-                src="/new_logo.png"
-                alt="Echo & Insight Logo"
-                width={288}
-                height={96}
-                quality={100}
-                className="h-20 md:h-24 w-auto object-contain mix-blend-multiply dark:mix-blend-normal"
-                priority
-              />
-              <span className="text-xl font-bold tracking-tight text-primary-600 hidden sm:block">Echo &amp; Insight</span>
-            </Link>
-            <nav className="hidden md:flex gap-8 items-center font-medium">
-              <Link href="/" className="hover:text-primary-500 transition-colors">Home</Link>
-              <Link href="/about" className="hover:text-primary-500 transition-colors">About</Link>
-              <Link href="/services" className="hover:text-primary-500 transition-colors">Services</Link>
-              <Link href="/contact" className="hover:text-primary-500 transition-colors">Contact</Link>
-              <Link href="/book" className="px-6 py-2.5 bg-primary-600 hover:bg-primary-500 text-white rounded-full transition-all hover:shadow-lg hover:-translate-y-0.5">
-                Book Appointment
-              </Link>
-            </nav>
-            {/* Mobile Menu Button - simplified for layout */}
-            <button className="md:hidden p-2 text-primary-600">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-            </button>
-          </div>
-        </header>
+        <Navbar />
 
         {/* Main Content */}
         <main className="flex-grow pt-20">
