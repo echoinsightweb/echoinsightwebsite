@@ -58,12 +58,14 @@ This document outlines all potential corner scenarios and edge cases based on th
 *   **Price Tampering:** A malicious user modifies the requested payment amount on the client side before the order creation.
 *   **Dynamic UPI-ID Change:** The Admin changes the target UPI-ID exactly while a user is in the middle of a checkout session.
 
-### Webhook Reliability
-*   **Delayed Webhooks:** User completes payment, but the webhook is delayed by several minutes. User leaves the site without seeing a confirmation screen.
+### Webhook Reliability & Status Checks
+*   **Abandoned Payments:** User opens the Cashfree checkout window but closes it or cancels without paying. Cashfree does not send a webhook immediately, leaving the database stuck in `PENDING`. (Resolved by adding a 30-second client-side polling timeout in `/book/status`, coupled with a proactive `Cashfree.PGFetchOrder` backend API check to determine the exact status rather than solely relying on webhooks).
+*   **Delayed Webhooks:** User completes payment, but the webhook is delayed by several minutes. User leaves the site without seeing a confirmation screen. (Resolved by the proactive `/api/checkout/status` check fetching the real-time order status directly from Cashfree).
 *   **Duplicate Webhooks:** The payment gateway sends the same successful webhook event multiple times.
 *   **Missed Webhooks:** The webhook fails to reach the server due to network issues (need a cron job to poll/reconcile "Pending" appointments that might have succeeded).
-*   **Security:** Malicious actors sending spoofed webhook requests to `/api/webhooks/payment` to falsely confirm appointments. (Ensure signature validation).
+*   **Security:** Malicious actors sending spoofed webhook requests to `/api/webhooks/payment` to falsely confirm appointments. (Resolved via HMAC-SHA256 signature verification matching `x-webhook-signature`).
 *   **Partial/Over Payments:** The user pays an amount different from the requested amount.
+*   **Mismatched Environments:** Using Production keys while the Cashfree JS SDK is in Sandbox mode, causing a `payment_session_id is not present` error. (Resolved by mapping the SDK mode to `NEXT_PUBLIC_CASHFREE_ENVIRONMENT`).
 
 ## Phase 5: Admin Dashboard Features
 

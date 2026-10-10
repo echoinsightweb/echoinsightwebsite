@@ -42,13 +42,14 @@ Based on the system architecture and problem statement, this document outlines t
     - 60 and 90-min slots are for paid sessions (Corporate/Group uses custom duration).
   - Build the Settings configuration page (`/admin/settings`) to securely store and update the target UPI-ID.
 
-## Phase 4: Payments & Webhooks
+## Phase 4: Payments & Webhooks [COMPLETED]
 **Objective**: Facilitate secure UPI payments and handle transaction confirmations.
 - **Tasks**:
-  - Integrate a Payment Gateway API (e.g., Razorpay, Cashfree, or PhonePe).
-  - Create `POST /api/checkout/create-order` to initialize a payment session dynamically routing funds to the configured UPI-ID.
-  - Create a secure webhook endpoint `POST /api/webhooks/payment` to listen for real-time payment success or failure events from the gateway.
-  - Implement logic to update the Appointment database status from "Pending" to "Confirmed" upon successful payment.
+  - Integrate Cashfree Payment Gateway API using `cashfree-pg` (Node backend) and `@cashfreepayments/cashfree-js` (React frontend).
+  - Create `POST /api/checkout/create-order` to initialize a payment session via Cashfree API v3, dynamically linking to the Booking ID.
+  - Create a secure webhook endpoint `POST /api/webhooks/payment` to listen for real-time payment success or failure events, validated strictly using `HMAC-SHA256` signature checking against Cashfree's `x-webhook-signature`.
+  - Implement polling on the frontend `/book/status` page to continuously ping `/api/checkout/status`, which proactively triggers `Cashfree.PGFetchOrder` for instant reconciliation or gracefully times out after 30 seconds if the user abandons the payment window.
+  - Required Environment Variables: `CASHFREE_APP_ID`, `CASHFREE_SECRET_KEY`, `CASHFREE_ENVIRONMENT`, and `NEXT_PUBLIC_CASHFREE_ENVIRONMENT`.
 
 ## Phase 5: Admin Dashboard Features & Manual Operations [COMPLETED - Including latest payment/reschedule updates]
 **Objective**: Provide the professional with tools to view, manage, and override their practice.

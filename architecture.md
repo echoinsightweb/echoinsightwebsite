@@ -49,15 +49,10 @@ The serverless backend will expose several RESTful endpoints. Admin routes will 
 ### 3.1. The Appointment Booking & Payment Workflow
 1. **Slot Selection**: User selects a date, time slot, and duration (15/60/90 mins) via the UI. The frontend fetches available 30-min base slots from `/api/calendar/slots`, and strictly validates consecutive availability on the client-side for multi-slot sessions, visually highlighting the entire block.
 2. **Details Entry**: User inputs their details (Name, Email, Mobile).
-3. **Payment Initiation**: Frontend calls `/api/checkout/create-order`. The backend fetches the current UPI-ID from the `Settings` table, creates a "Pending" appointment, and returns a payment order ID.
-4. **UPI Payment**: User completes the transaction via the Payment Gateway.
-5. **Webhook Confirmation**: Upon successful payment, the gateway triggers `/api/webhooks/payment`.
-6. **Fulfillment (Backend)**:
-   - Updates the appointment status to "Confirmed".
-   - Calls the **Google Calendar API** to block the booked slot.
-   - Calls the **SendGrid API** to send email confirmations/notifications to the Patient and Professional (`ridhi.mentalhealthpractitioner@gmail.com`).
-   - Calls the **WhatsApp Business API (Twilio)** to send WhatsApp confirmations to the Patient and Professional (`+91-9910043799`).
-7. **Redirection**: The user is redirected to a success page.
+3. **Payment Initiation**: Frontend calls `/api/checkout/create-order`. The backend fetches the Cashfree API keys (via env vars), creates a "Pending" appointment, uses `cashfree-pg` SDK to create an order, and returns a `payment_session_id`.
+4. **Cashfree Checkout**: Frontend passes the `payment_session_id` into the `@cashfreepayments/cashfree-js` SDK to open the checkout modal securely without leaving the site.
+5. **Redirection & Polling**: Upon payment completion or cancellation, the user is redirected to `/book/status`. The page polls `/api/checkout/status`, which actively queries `Cashfree.PGFetchOrder` for instant reconciliation or gracefully times out after 30 seconds if the user abandoned the session.
+6. **Webhook Confirmation (Background)**: Cashfree concurrently triggers `POST /api/webhooks/payment` with a cryptographic `x-webhook-signature`. The backend validates the signature, updates the appointment status to "Confirmed", calls the **Google Calendar API** to block the slot, and dispatches confirmations via **SendGrid** and **Twilio WhatsApp**.
 
 ### 3.2. Automated Reminders Workflow
 1. A scheduled cron job (e.g., Vercel Cron or Upstash QStash) runs continuously to check for appointments starting in exactly 30 minutes. All time comparisons are performed in **IST (Asia/Kolkata, UTC+5:30)**.

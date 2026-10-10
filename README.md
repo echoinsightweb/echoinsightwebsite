@@ -29,6 +29,18 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Environment Variables Setup
+When deploying to Vercel, ensure the following environment variables are strictly configured:
+
+- `DATABASE_URL` & `DIRECT_URL`: Supabase Postgres connection strings.
+- `NEXTAUTH_SECRET`: Random 32-character string for NextAuth session encryption.
+- `NEXTAUTH_URL`: Your production domain (e.g., `https://echoinsight.in`).
+- `GOOGLE_CLIENT_ID` & `GOOGLE_CLIENT_SECRET`: For Google Admin Login.
+- `CASHFREE_APP_ID`: Your Cashfree API Key (Sandbox or Production).
+- `CASHFREE_SECRET_KEY`: Your Cashfree API Secret.
+- `CASHFREE_ENVIRONMENT`: Backend environment (`SANDBOX` or `PRODUCTION`).
+- `NEXT_PUBLIC_CASHFREE_ENVIRONMENT`: Frontend environment (`sandbox` or `production`) to ensure the SDK opens the correct checkout window.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
