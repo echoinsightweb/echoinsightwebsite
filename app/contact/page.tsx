@@ -92,7 +92,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Location</h3>
-                    <p>123 Wellness Avenue, Suite 200<br/>New York, NY 10001</p>
+                    <p>New Delhi</p>
                   </div>
                 </div>
               </div>

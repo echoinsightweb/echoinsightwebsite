@@ -67,7 +67,7 @@ Based on the system architecture and problem statement, this document outlines t
   - **Manual Admin Booking & Override**: Create a dynamic form for the admin to manually enter a new booking or edit an existing booking's time slot. Automatically fetches available Google Calendar slots, and implements the exact same 1:1 **brand styling (primary colors), multi-slot visual highlighting effects, date carousel UI, and strict contiguous block availability checking** as the public patient booking page. This ensures a perfectly unified look, logic, and user experience across the application.
   - **Reschedule Management**: Add UI to view user-submitted Reschedule Requests. Allow the admin to "Approve" (patches Google Calendar and updates DB) or "Reject". Also allow the admin to manually override/reschedule any booking without a user request.
 
-## Phase 6: Rescheduling, Notifications & Automated Reminders
+## Phase 6: Rescheduling, Notifications & Automated Reminders [COMPLETED]
 **Objective**: Ensure seamless communication with patients, handle reschedule policies, and send reminders.
 - **Tasks**:
   - **Rescheduling Workflow**: 
@@ -80,7 +80,7 @@ Based on the system architecture and problem statement, this document outlines t
   - Update the Payment Webhook success handler to:
     1. Write the confirmed appointment to the Google Calendar (blocking the slot).
     2. Send Confirmation Emails & WhatsApp messages to both the Patient and the Admin.
-  - Set up a scheduled CRON job (e.g., Vercel Cron or Upstash QStash) running in the **IST timezone (Asia/Kolkata, New Delhi, UTC+5:30)**.
+  - Set up a scheduled CRON job using an external free service like **cron-job.org** (to bypass Vercel Hobby tier 1-cron-per-day limits), hitting the `/api/cron/reminders` endpoint every 15 minutes.
   - Implement the **Reminder Workflow**: Identify appointments starting in exactly 30 minutes (relative to IST) and dispatch automated WhatsApp & Email reminders to the Patient and Admin.
 
 ## Phase 7: DevSecOps & Security Hardening

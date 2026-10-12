@@ -50,7 +50,7 @@ This document serves as a checklist and evaluation plan to ensure all requiremen
 - [ ] `POST /api/enquiries` triggers real-time Email and WhatsApp alerts to admin upon form submission.
 - [ ] Payment Webhook success handler successfully writes confirmed appointments to Google Calendar (blocking slot).
 - [ ] Payment Webhook success handler sends Confirmation Emails & WhatsApp messages to Patient and Admin.
-- [ ] Scheduled CRON job set up and running in IST timezone.
+- [x] Scheduled CRON job set up and running via external service (cron-job.org).
 - [ ] Reminder Workflow accurately dispatches WhatsApp & Email reminders exactly 30 minutes before appointment (relative to IST) to Patient and Admin.
 
 ## Phase 7: Testing, Verification & Deployment

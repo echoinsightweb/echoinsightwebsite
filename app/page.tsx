@@ -59,24 +59,36 @@ export default function Home() {
       {/* Intro Section */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl animate-slide-up">
+          <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl animate-slide-up">
             <Image
-              src="/dr_aiden.jpg"
-              alt="Dr. Aiden Wright"
+              src="/ridhi.jpg"
+              alt="Ridhi - Psychologist & Mental Health Practitioner"
               fill
               className="object-cover"
             />
           </div>
           <div className="animate-slide-up animation-delay-200">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-              Meet Dr. Aiden Wright
+            <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">
+              Hi, I’m Ridhi.
             </h2>
-            <div className="space-y-4 text-secondary-500 text-lg leading-relaxed">
+            <p className="text-lg italic text-primary-600 dark:text-primary-400 font-medium mb-6">
+              Psychologist | Counsellor | Mental Health Practitioner
+            </p>
+            <div className="space-y-4 text-secondary-600 dark:text-secondary-300 text-lg leading-relaxed">
               <p>
-                With over a decade of clinical experience, Dr. Wright specializes in cognitive behavioral therapy (CBT), mindfulness-based interventions, and trauma-informed care.
+                My work across counselling, human behaviour, organisational psychology, and learning and development has taught me that people don’t always need more advice. Sometimes, they need the space to pause, look within, and find clarity.
               </p>
               <p>
-                He believes in a holistic approach to mental well-being, providing a safe, judgment-free space for clients to explore their thoughts, feelings, and behaviors. Whether you're dealing with anxiety, depression, or life transitions, Dr. Wright is here to support you.
+                Some of us feel stuck without quite knowing why. Others aren’t stuck at all, but sense there is more within them waiting to grow. I believe both begin at the same place: <strong className="text-foreground font-bold">insight</strong>.
+              </p>
+              <p className="font-bold text-foreground">
+                Echo&Insight was born from this belief: understanding ourselves is not just a way out of difficult situations, but a way into a fuller life.
+              </p>
+              <p>
+                Whether it’s your mental well-being, relationships, career, or personal growth, there is always room to understand more, discover more, and become more. And doing it with professional support takes us further, faster than doing it alone.
+              </p>
+              <p className="font-bold text-foreground">
+                Echo&Insight is where you’re heard, where you see yourself clearly, and where you move forward.
               </p>
             </div>
             <div className="mt-8">
