@@ -30,7 +30,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-secondary-800 dark:text-secondary-200 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-            Evidence-based therapy and compassionate care tailored to your unique journey. Take the first step towards a healthier mind today.
+            A supportive space to understand yourself, navigate life&apos;s challenges and find greater clarity in your thoughts, emotions and relationships.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
