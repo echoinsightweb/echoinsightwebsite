@@ -41,7 +41,10 @@ export default function RootLayout({
         <footer className="bg-secondary-900 text-secondary-50 py-12 mt-20 border-t border-secondary-500/20">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 text-primary-100">Echo &amp; Insight</h3>
+              <div className="mb-4">
+                <h3 className="font-serif text-xl font-semibold text-primary-100">Echo &amp; Insight</h3>
+                <p className="text-[10px] tracking-[0.25em] text-secondary-400 uppercase mt-0.5 font-medium">COUNSELLING &amp; WELLBEING</p>
+              </div>
               <p className="text-secondary-500 mb-4 max-w-sm">
                 Providing compassionate, professional, and evidence-based mental healthcare to help you navigate life&apos;s challenges. Visit us at <a href="https://echoinsight.in" className="text-primary-400 hover:text-primary-300 transition-colors">echoinsight.in</a>.
               </p>

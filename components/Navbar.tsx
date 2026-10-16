@@ -10,17 +10,24 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-full z-50 glass-nav transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity" aria-label="Echo & Insight Home">
+        <Link href="/" className="flex items-center gap-3.5 hover:opacity-90 transition-opacity" aria-label="Echo & Insight Home">
           <Image
             src="/new_logo.png"
             alt="Echo & Insight Logo"
             width={288}
             height={96}
             quality={100}
-            className="h-16 md:h-24 w-auto object-contain mix-blend-multiply dark:mix-blend-normal"
+            className="h-14 md:h-18 w-auto object-contain mix-blend-multiply dark:mix-blend-normal"
             priority
           />
-          <span className="text-xl font-bold tracking-tight text-primary-600 hidden sm:block">Echo &amp; Insight</span>
+          <div className="flex flex-col justify-center">
+            <span className="font-serif text-xl sm:text-2xl md:text-[1.65rem] font-semibold tracking-tight text-primary-800 dark:text-primary-100 leading-none">
+              Echo &amp; Insight
+            </span>
+            <span className="text-[8px] sm:text-[9.5px] md:text-[10.5px] font-medium tracking-[0.25em] text-secondary-500 dark:text-secondary-400 uppercase mt-1 select-none">
+              COUNSELLING &amp; WELLBEING
+            </span>
+          </div>
         </Link>
         
         {/* Desktop Nav */}
