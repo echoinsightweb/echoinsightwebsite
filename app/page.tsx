@@ -21,7 +21,7 @@ export default function Home() {
 
         <div className="relative z-20 max-w-4xl mx-auto px-6 text-center animate-slide-up">
           <span className="inline-block py-1 px-3 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-6 animate-fade-in">
-            Professional Mental Healthcare
+            Counselling & Emotional WellBeing
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-foreground">
             Find Clarity.<br/>
