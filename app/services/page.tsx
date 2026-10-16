@@ -64,6 +64,7 @@ export default function ServicesPage() {
         "Parenting guidance and family communication",
       ],
       duration: "60 / 90 mins",
+      image: "/services/parental-child.jpg",
       icon: "M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z",
     },
     {
@@ -79,6 +80,7 @@ export default function ServicesPage() {
         "Customised L&D and organisational consulting",
       ],
       duration: "Custom Duration",
+      image: "/services/corporate-workshops.jpg",
       icon: "M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632l-.04-.034a.98.98 0 0 1 .112-.018l.015-.003.118-.016",
     },
     {
@@ -94,6 +96,7 @@ export default function ServicesPage() {
         "Managing difficult conversations",
       ],
       duration: "60 / 90 mins",
+      image: "/services/emotional-communication.jpg",
       icon: "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z",
     },
   ];
