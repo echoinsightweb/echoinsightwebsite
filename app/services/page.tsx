@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ServicesPage() {
   const services = [
@@ -15,6 +16,7 @@ export default function ServicesPage() {
         "Strengthening confidence and self-esteem",
       ],
       duration: "60 / 90 mins",
+      image: "/services/life-skills.jpg",
       icon: "M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.82 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.496 1.508 1.333 1.508 2.316V18",
     },
     {
@@ -30,6 +32,7 @@ export default function ServicesPage() {
         "Rebuilding trust and emotional intimacy",
       ],
       duration: "60 / 90 mins",
+      image: "/services/relationship-counselling.jpg",
       icon: "M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632l-.04-.034a.98.98 0 0 1 .112-.018l.015-.003.118-.016M18 18.72l-1.02-1.02m-1.02-1.02A6 6 0 0 0 12 15.75c-1.396 0-2.68.473-3.708 1.272l-1.02 1.02M12 15.75a6.002 6.002 0 0 0-5.46-3.87",
     },
     {
@@ -45,6 +48,7 @@ export default function ServicesPage() {
         "Emotional regulation and long-term wellness habits",
       ],
       duration: "60 / 90 mins",
+      image: "/services/mental-health-wellbeing.jpg",
       icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
     },
     {
@@ -130,11 +134,22 @@ export default function ServicesPage() {
             <div key={i} className="bg-background rounded-3xl p-8 border border-secondary-500/20 hover:border-primary-500/50 hover:shadow-2xl transition-all group animate-slide-up flex flex-col" style={{ animationDelay: `${(i + 1) * 150}ms` }}>
               {/* Icon & Duration */}
               <div className="flex items-start justify-between mb-5">
-                <div className="w-14 h-14 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300 shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={service.icon} />
-                  </svg>
-                </div>
+                {service.image ? (
+                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 shrink-0 border border-primary-500/20">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-14 h-14 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300 shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={service.icon} />
+                    </svg>
+                  </div>
+                )}
                 <span className="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full mt-1">
                   {service.duration}
                 </span>
