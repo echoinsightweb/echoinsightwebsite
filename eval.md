@@ -13,8 +13,9 @@ This document serves as a checklist and evaluation plan to ensure all requiremen
 - [ ] Book Appointment Page (`/book`) supports `?type=free` for 15-min "Know Your Counsellor" session (no payment, calendar block, confirmations).
 - [ ] Book Appointment Page supports 60-min and 90-min paid sessions.
 - [ ] Dynamic 30-day date picker limits slots between 11:00 AM and 11:00 PM (last slot 9:30 PM).
-- [ ] "Know Your Counsellor" CTA button on Home page hero and Services page header links to `/book?type=free`.
-- [ ] Static contact information updated across footer and contact pages.
+- [ ] "Know Your Counsellor" CTA button on Home page hero and Services page header links to `/book?type=free` with consistent brand gradient styling.
+- [ ] Static contact information updated across footer and contact pages (`echoinsightsupport@gmail.com`).
+- [ ] Official brand logo emblem integrated in transparent format across navbar.
 
 ## Phase 2: Database & Admin Authentication
 - [ ] Supabase PostgreSQL database initialized and Prisma ORM configured.

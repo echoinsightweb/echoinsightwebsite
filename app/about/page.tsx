@@ -1,56 +1,57 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Ridhi | Echo & Insight",
+  description: "Learn about Ridhi, Psychologist, Counsellor & Mental Health Practitioner at Echo & Insight.",
+};
 
 export default function AboutPage() {
   return (
     <div className="w-full">
-      {/* Header */}
-      <section className="pt-24 pb-12 bg-secondary-50 dark:bg-secondary-900 border-b border-secondary-500/10">
-        <div className="max-w-7xl mx-auto px-6 text-center animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Ridhi</h1>
-          <p className="text-lg italic text-secondary-500 max-w-2xl mx-auto">
-            Psychologist | Counsellor | Mental Health Practitioner
-          </p>
-        </div>
-      </section>
-
       {/* Main Content */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl animate-fade-in sticky top-28">
+      <section className="pt-8 pb-20 md:pt-12 md:pb-24">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl animate-fade-in lg:sticky lg:top-28">
             <Image
               src="/ridhi.jpg"
               alt="Ridhi - Psychologist & Mental Health Practitioner"
               fill
+              priority
               className="object-cover"
             />
           </div>
           <div className="space-y-8 animate-slide-up animation-delay-200">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Hi, I’m Ridhi.</h2>
+              <h1 className="text-3xl md:text-5xl font-bold mb-3 text-foreground tracking-tight">I’m Ridhi.</h1>
               <p className="text-lg italic text-primary-600 dark:text-primary-400 font-medium mb-8">
                 Psychologist | Counsellor | Mental Health Practitioner
               </p>
               
-              <div className="space-y-6 text-secondary-600 dark:text-secondary-300 text-lg leading-relaxed">
+              <div className="space-y-6 text-secondary-700 dark:text-secondary-300 text-lg leading-relaxed">
                 <p>
-                  My work across counselling, human behaviour, organisational psychology, and learning and development has taught me that people don’t always need more advice. Sometimes, they need the space to pause, look within, and find clarity.
-                </p>
-
-                <p>
-                  Some of us feel stuck without quite knowing why. Others aren’t stuck at all, but sense there is more within them waiting to grow. I believe both begin at the same place: <strong className="text-foreground font-bold">insight</strong>.
-                </p>
-
-                <p className="font-bold text-foreground text-lg">
-                  Echo&Insight was born from this belief: understanding ourselves is not just a way out of difficult situations, but a way into a fuller life.
+                  Some of us feel stuck without quite knowing why. Others aren&apos;t stuck at all but feel there is more within them waiting to grow. And sometimes, we just need a space to talk, reflect, and make sense of what&apos;s happening in our lives.
                 </p>
 
                 <p>
-                  Whether it’s your mental well-being, relationships, career, or personal growth, there is always room to understand more, discover more, and become more. And doing it with professional support takes us further, faster than doing it alone.
+                  I believe both begin at the same place: <em className="italic font-bold text-foreground">insight</em>.
                 </p>
 
-                <p className="font-bold text-foreground text-lg">
-                  Echo&Insight is where you’re heard, where you see yourself clearly, and where you move forward.
+                <p>
+                  My work across counselling, human behaviour, organisational psychology, and learning and development has taught me that people don&apos;t always need more advice. Sometimes, they need someone to listen, the right questions to reflect on, and the space to understand themselves and their circumstances more clearly.
+                </p>
+
+                <p className="italic font-semibold text-foreground text-lg">
+                  Echo&amp;Insight was born from this belief: understanding ourselves is not just a way out of difficult situations, but a way into a fuller life.
+                </p>
+
+                <p>
+                  Whether you&apos;re navigating something difficult or simply curious about who you could become, you deserve the space to explore, understand, and grow. With professional support, we can go further and faster than we can alone.
+                </p>
+
+                <p className="italic font-semibold text-foreground text-lg">
+                  Echo&amp;Insight is where you&apos;re heard, where you make sense of your life, where you see yourself clearly, and where you move forward.
                 </p>
               </div>
 

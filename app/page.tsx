@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative w-full h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[85vh] min-h-[540px] flex items-center justify-center overflow-hidden">
         {/* Abstract/Ambient Background using generated image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -20,16 +20,22 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 max-w-4xl mx-auto px-6 text-center animate-slide-up">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-6 animate-fade-in">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-primary-50 dark:bg-primary-950/40 text-primary-700 dark:text-primary-300 border border-primary-200/60 dark:border-primary-800/40 text-sm font-semibold mb-5 animate-fade-in shadow-sm">
             Counselling & Emotional WellBeing
           </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-foreground">
-            Find Clarity.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-accent-600 to-orange-600 dark:from-primary-400 dark:via-accent-400 dark:to-orange-400">
-              Restore Balance.
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+            <span className="text-secondary-700 dark:text-secondary-200">
+              Find Clarity.
+            </span>
+            <br/>
+            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-accent-600 to-orange-600 dark:from-primary-400 dark:via-accent-400 dark:to-orange-400">
+              Restore
+            </span>{" "}
+            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-accent-600 to-orange-600 dark:from-primary-400 dark:via-accent-400 dark:to-orange-400">
+              Balance.
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-secondary-800 dark:text-secondary-200 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-secondary-800 dark:text-secondary-200 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
             A supportive space to understand yourself, navigate life&apos;s challenges and find greater clarity in your thoughts, emotions and relationships.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -57,8 +63,8 @@ export default function Home() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <section className="pt-16 pb-10 md:pt-20 md:pb-12 bg-background">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl animate-slide-up">
             <Image
               src="/ridhi.jpg"
@@ -69,26 +75,29 @@ export default function Home() {
           </div>
           <div className="animate-slide-up animation-delay-200">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">
-              Hi, I’m Ridhi.
+              I’m Ridhi.
             </h2>
             <p className="text-lg italic text-primary-600 dark:text-primary-400 font-medium mb-6">
               Psychologist | Counsellor | Mental Health Practitioner
             </p>
-            <div className="space-y-4 text-secondary-600 dark:text-secondary-300 text-lg leading-relaxed">
+            <div className="space-y-4 text-secondary-700 dark:text-secondary-300 text-lg leading-relaxed">
               <p>
-                My work across counselling, human behaviour, organisational psychology, and learning and development has taught me that people don’t always need more advice. Sometimes, they need the space to pause, look within, and find clarity.
-              </p>
-              <p>
-                Some of us feel stuck without quite knowing why. Others aren’t stuck at all, but sense there is more within them waiting to grow. I believe both begin at the same place: <strong className="text-foreground font-bold">insight</strong>.
-              </p>
-              <p className="font-bold text-foreground">
-                Echo&Insight was born from this belief: understanding ourselves is not just a way out of difficult situations, but a way into a fuller life.
+                Some of us feel stuck without quite knowing why. Others aren&apos;t stuck at all but feel there is more within them waiting to grow. And sometimes, we just need a space to talk, reflect, and make sense of what&apos;s happening in our lives.
               </p>
               <p>
-                Whether it’s your mental well-being, relationships, career, or personal growth, there is always room to understand more, discover more, and become more. And doing it with professional support takes us further, faster than doing it alone.
+                I believe both begin at the same place: <em className="italic font-bold text-foreground">insight</em>.
               </p>
-              <p className="font-bold text-foreground">
-                Echo&Insight is where you’re heard, where you see yourself clearly, and where you move forward.
+              <p>
+                My work across counselling, human behaviour, organisational psychology, and learning and development has taught me that people don&apos;t always need more advice. Sometimes, they need someone to listen, the right questions to reflect on, and the space to understand themselves and their circumstances more clearly.
+              </p>
+              <p className="italic font-semibold text-foreground">
+                Echo&amp;Insight was born from this belief: understanding ourselves is not just a way out of difficult situations, but a way into a fuller life.
+              </p>
+              <p>
+                Whether you&apos;re navigating something difficult or simply curious about who you could become, you deserve the space to explore, understand, and grow. With professional support, we can go further and faster than we can alone.
+              </p>
+              <p className="italic font-semibold text-foreground">
+                Echo&amp;Insight is where you&apos;re heard, where you make sense of your life, where you see yourself clearly, and where you move forward.
               </p>
             </div>
             <div className="mt-8">
@@ -104,10 +113,10 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-24 bg-secondary-50 dark:bg-secondary-900/50">
+      <section className="pt-10 pb-14 md:pt-12 md:pb-16 bg-secondary-50 dark:bg-secondary-900/50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Areas of Expertise</h2>
+          <div className="text-center mb-8 animate-slide-up">
+            <h2 className="text-3xl md:text-4xl font-bold mb-2.5">Areas of Expertise</h2>
             <p className="text-secondary-500 max-w-2xl mx-auto">Comprehensive mental healthcare services tailored to support your personal growth and healing.</p>
           </div>
 
@@ -145,7 +154,7 @@ export default function Home() {
           </div>
           
           {/* More Services Button */}
-          <div className="mt-12 text-center animate-slide-up" style={{ animationDelay: "800ms" }}>
+          <div className="mt-10 text-center animate-slide-up" style={{ animationDelay: "800ms" }}>
             <Link href="/services" className="inline-flex items-center justify-center px-8 py-3 bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 rounded-full font-bold transition-all shadow-sm">
               View All Services →
             </Link>
@@ -154,11 +163,11 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden bg-primary-700 text-white">
+      <section className="py-16 md:py-20 relative overflow-hidden bg-primary-700 text-white">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to prioritize your mental health?</h2>
-          <p className="text-primary-100 text-lg mb-10 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to prioritize your mental health?</h2>
+          <p className="text-primary-100 text-lg mb-8 max-w-2xl mx-auto">
             Schedule a consultation today and take the first step towards a more balanced, fulfilling life. Appointments available in 60 and 90-minute blocks.
           </p>
           <Link 

@@ -59,7 +59,7 @@ export default function CancellationPolicyPage() {
           If you have any questions regarding this policy or need assistance with your booking, please reach out to us:
         </p>
         <ul className="list-disc pl-6 space-y-2 mt-4">
-          <li><strong>Email:</strong> ridhi.mentalhealthpractitioner@gmail.com</li>
+          <li><strong>Email:</strong> <a href="mailto:echoinsightsupport@gmail.com" className="text-primary-600 hover:text-primary-800 transition-colors">echoinsightsupport@gmail.com</a></li>
           <li><strong>Phone:</strong> +91-9910043799</li>
         </ul>
 

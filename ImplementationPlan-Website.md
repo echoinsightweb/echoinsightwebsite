@@ -18,8 +18,14 @@ Based on the system architecture and problem statement, this document outlines t
     - **Paid session**: 60-min and 90-min options only.
     - Includes dynamic 30-day date picker and limits slots between 11:00 AM and 11:00 PM (last slot 9:30 PM).
     - **Multi-Slot Selection & Validation**: Visually highlights 2 or 3 consecutive 30-minute blocks when a 60 or 90-minute session is selected. Strictly validates if the subsequent required contiguous slots are free in Google Calendar; immediately alerts and blocks selection if consecutive availability is broken.
-  - Add "Know Your Counsellor" CTA button (linking to `/book?type=free`) on the Home page hero and Services page header.
-  - Update all static contact information across the footer and contact pages.
+  - Add "Know Your Counsellor" CTA button (linking to `/book?type=free`) on the Home page hero and Services page header (styled with the brand dual-shade teal-to-orange gradient).
+  - Update all static contact information across the footer and contact pages to `echoinsightsupport@gmail.com`.
+  - **Recent Branding & Visual Polish**:
+    - Integrated the official high-resolution transparent brand emblem (`public/new_logo.png`).
+    - Standardized typography and dual-shade gradients across "Restore Balance" and CTA banners.
+    - Optimized vertical spacing (~20% to ~30% reduction) across Home and Services sections.
+    - Streamlined About page layout and promoted "I'm Ridhi." to primary `<h1>`.
+    - Renamed footer Quick Link "Therapy Services" to "Counselling Services".
 
 ## Phase 2: Database & Admin Authentication [COMPLETED]
 **Objective**: Set up the backend data layer and secure the professional's Admin Dashboard.

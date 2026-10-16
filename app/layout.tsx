@@ -52,7 +52,7 @@ export default function RootLayout({
             <div>
               <h4 className="font-semibold mb-4 text-primary-100">Quick Links</h4>
               <div className="flex flex-col gap-2 text-secondary-500">
-                <Link href="/services" className="hover:text-white transition-colors">Therapy Services</Link>
+                <Link href="/services" className="hover:text-white transition-colors">Counselling Services</Link>
                 <Link href="/book" className="hover:text-white transition-colors">Book a Session</Link>
                 <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
                 <Link href="/admin/login" className="hover:text-white transition-colors">Professional Portal</Link>
@@ -69,7 +69,7 @@ export default function RootLayout({
             <div>
               <h4 className="font-semibold mb-4 text-primary-100">Contact</h4>
               <div className="text-secondary-500 space-y-2">
-                <p>Email: ridhi.mentalhealthpractitioner@gmail.com</p>
+                <p>Email: <a href="mailto:echoinsightsupport@gmail.com" className="hover:text-white transition-colors">echoinsightsupport@gmail.com</a></p>
                 <p>Phone: +91-9910043799</p>
                 <p>Hours: Mon-Sat, 11:00 AM - 11:00 PM</p>
               </div>

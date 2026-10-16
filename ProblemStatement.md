@@ -29,11 +29,11 @@ The website must feature an Enquiry Form (accessible via the Contact page or a m
 
 ### 4.2. Automated Notifications (Enquiries & Appointments)
 Upon successful submission of a general enquiry, the system must trigger real-time alerts:
-- **Email Notification**: Send an automated email with the user's details to the admin/professional's email address (`ridhi.mentalhealthpractitioner@gmail.com`).
+- **Email Notification**: Send an automated email with the user's details to the admin/practice email address (`echoinsightsupport@gmail.com` / `ridhi.mentalhealthpractitioner@gmail.com`).
 - **WhatsApp Notification**: Send an automated WhatsApp message to the admin/professional's registered mobile number (`+91-9910043799`) containing the enquiry details.
 
 **New Appointment Notifications & Reminders**:
-- Send an email notification for any new appointment to `ridhi.mentalhealthpractitioner@gmail.com`.
+- Send an email notification for any new appointment to `echoinsightsupport@gmail.com` / `ridhi.mentalhealthpractitioner@gmail.com`.
 - Send an automated appointment reminder **30 minutes** before the scheduled start time to both the patient and the admin via WhatsApp and Email.
 
 ### 4.3. Appointment Booking & Google Calendar Integration

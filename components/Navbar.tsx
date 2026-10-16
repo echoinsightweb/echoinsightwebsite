@@ -14,10 +14,10 @@ export default function Navbar() {
           <Image
             src="/new_logo.png"
             alt="Echo & Insight Logo"
-            width={288}
-            height={96}
+            width={765}
+            height={713}
             quality={100}
-            className="h-14 md:h-18 w-auto object-contain mix-blend-multiply dark:mix-blend-normal"
+            className="h-14 md:h-16 w-auto object-contain"
             priority
           />
           <div className="flex flex-col justify-center">

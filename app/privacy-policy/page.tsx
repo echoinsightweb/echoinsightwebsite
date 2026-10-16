@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
         <h2 className="text-2xl font-bold text-primary-800 mt-8 mb-4">7. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us:</p>
         <ul className="list-disc pl-6 space-y-2 mt-4">
-          <li><strong>Email:</strong> ridhi.mentalhealthpractitioner@gmail.com</li>
+          <li><strong>Email:</strong> <a href="mailto:echoinsightsupport@gmail.com" className="text-primary-600 hover:text-primary-800 transition-colors">echoinsightsupport@gmail.com</a></li>
           <li><strong>Phone:</strong> +91-9910043799</li>
         </ul>
 

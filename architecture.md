@@ -57,7 +57,7 @@ The serverless backend will expose several RESTful endpoints. Admin routes will 
 ### 3.2. Automated Reminders Workflow
 1. A scheduled cron job (using a free external service like **cron-job.org** due to Vercel Hobby tier limitations) runs every 15 minutes to check for appointments starting in exactly 30 minutes. All time comparisons are performed in **IST (Asia/Kolkata, UTC+5:30)**.
 2. For each matching appointment, it triggers the Email and WhatsApp APIs.
-3. A 30-minute reminder is dispatched to both the Patient and the Admin (`ridhi.mentalhealthpractitioner@gmail.com` / `+91-9910043799`).
+3. A 30-minute reminder is dispatched to both the Patient and the Admin (`echoinsightsupport@gmail.com` / `ridhi.mentalhealthpractitioner@gmail.com` / `+91-9910043799`).
 
 ### 3.3. Admin Management Workflow
 1. Professional logs in via `/admin/login`. Backend issues a secure session token.

@@ -41,6 +41,20 @@ When deploying to Vercel, ensure the following environment variables are strictl
 - `CASHFREE_ENVIRONMENT`: Backend environment (`SANDBOX` or `PRODUCTION`).
 - `NEXT_PUBLIC_CASHFREE_ENVIRONMENT`: Frontend environment (`sandbox` or `production`) to ensure the SDK opens the correct checkout window.
 
+## Recent UI/UX & Branding Enhancements
+- **Official Brand Logo Emblem**: Replaced circular placeholder with high-resolution transparent emblem (`public/new_logo.png`) seamlessly integrated into the navigation header.
+- **Hero Typography & Gradient Refinements**:
+  - Softened "Find Clarity." title from pitch black to refined charcoal slate (`#334155`).
+  - Lightened "Counselling & Emotional WellBeing" pill badge with an ultra-light pastel background (`bg-primary-50`) and subtle border.
+  - Applied dual-shade teal-to-orange gradient (`primary-600` via `accent-600` to `orange-600`) to both "Restore" and "Balance." independently.
+- **Services Page Polish**:
+  - Removed "Available Exclusively Online" green badge for cleaner focus.
+  - Replaced purple/violet gradient on "Know Your Counsellor" CTA card with the brand teal-to-orange gradient.
+- **About Page Realignment**: Removed redundant top banner header, promoted "I'm Ridhi." to primary `<h1>`, and aligned profile image for desktop sticky scrolling.
+- **Vertical Spacing Optimization**: Reduced excessive vertical dead space between section frames by ~20% to ~30% on Home and Services pages.
+- **Standardized Contact Email**: Updated public contact email to `echoinsightsupport@gmail.com` across all pages (Contact, Footer, Privacy Policy, Terms & Conditions, Cancellation Policy).
+- **Footer Quick Links**: Renamed "Therapy Services" to "Counselling Services".
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
