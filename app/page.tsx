@@ -25,7 +25,7 @@ export default function Home() {
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-foreground">
             Find Clarity.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 dark:from-primary-400 dark:to-primary-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-accent-600 to-orange-600 dark:from-primary-400 dark:via-accent-400 dark:to-orange-400">
               Restore Balance.
             </span>
           </h1>

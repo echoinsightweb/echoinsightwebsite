@@ -19,7 +19,13 @@
   --color-secondary-700: #334155;
   --color-secondary-800: #1e293b;
   --color-secondary-900: #0f172a;
+  --color-accent-400: #fbbf24;
   --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-orange-500: #f97316;
+  --color-orange-600: #ea580c;
+  --color-orange-700: #c2410c;
 }
 
 @layer base {
