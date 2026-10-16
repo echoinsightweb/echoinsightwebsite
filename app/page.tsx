@@ -12,11 +12,11 @@ export default function Home() {
             src="/therapy_room.jpg"
             alt="Calming Therapy Room"
             fill
-            className="object-cover opacity-30 dark:opacity-20 scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
+            className="object-cover opacity-15 dark:opacity-10 scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
             priority
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background z-10" />
         </div>
 
         <div className="relative z-20 max-w-4xl mx-auto px-6 text-center animate-slide-up">
@@ -25,7 +25,7 @@ export default function Home() {
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-foreground">
             Find Clarity.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 dark:from-primary-400 dark:to-primary-200">
               Restore Balance.
             </span>
           </h1>
