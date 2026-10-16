@@ -47,9 +47,11 @@ When deploying to Vercel, ensure the following environment variables are strictl
   - Softened "Find Clarity." title from pitch black to refined charcoal slate (`#334155`).
   - Lightened "Counselling & Emotional WellBeing" pill badge with an ultra-light pastel background (`bg-primary-50`) and subtle border.
   - Applied dual-shade teal-to-orange gradient (`primary-600` via `accent-600` to `orange-600`) to both "Restore" and "Balance." independently.
-- **Services Page Polish**:
+- **Services Page Polish & Visual Harmony**:
+  - Replaced vector SVG icons across all 6 service cards with dedicated serene illustration artwork (`/services/*.jpg`).
+  - Updated "Know Your Counsellor" CTA banner background to harmonious deep brand teal (`from-primary-700 via-primary-600 to-primary-700`) with warm champagne gold eyebrow text (`text-amber-200`) and subtle dual teal/gold border glow, matching the logo and service illustration icons.
   - Removed "Available Exclusively Online" green badge for cleaner focus.
-  - Replaced purple/violet gradient on "Know Your Counsellor" CTA card with the brand teal-to-orange gradient.
+- **Harmonized CTA & Pricing Backgrounds**: Synchronized the background of "Ready to prioritize your mental health?" on the Home Page to `bg-primary-600` so it matches the "Transparent Pricing" section on the Services page and the primary action buttons (e.g. "Book appointment").
 - **About Page Realignment**: Removed redundant top banner header, promoted "I'm Ridhi." to primary `<h1>`, and aligned profile image for desktop sticky scrolling.
 - **Vertical Spacing Optimization**: Reduced excessive vertical dead space between section frames by ~20% to ~30% on Home and Services pages.
 - **Standardized Contact Email**: Updated public contact email to `echoinsightsupport@gmail.com` across all pages (Contact, Footer, Privacy Policy, Terms & Conditions, Cancellation Policy).

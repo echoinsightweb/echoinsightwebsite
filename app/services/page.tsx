@@ -112,16 +112,16 @@ export default function ServicesPage() {
 
         {/* Know Your Counsellor CTA */}
         <div className="max-w-2xl mx-auto mt-8 px-6">
-          <div className="rounded-3xl bg-gradient-to-r from-primary-600 via-accent-600 to-orange-600 p-px shadow-xl">
-            <div className="rounded-3xl bg-gradient-to-r from-primary-600 via-accent-600 to-orange-600 px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="rounded-3xl bg-gradient-to-r from-primary-500 via-amber-300/40 to-primary-500 p-px shadow-xl">
+            <div className="rounded-3xl bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-white text-center sm:text-left">
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary-100 mb-1">Not sure where to start?</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-amber-200 mb-1">Not sure where to start?</p>
                 <h2 className="text-xl font-bold">Know Your Counsellor</h2>
-                <p className="text-sm text-white/90 mt-1">A free 15-minute intro session — no payment, no pressure.</p>
+                <p className="text-sm text-primary-100 mt-1">A free 15-minute intro session — no payment, no pressure.</p>
               </div>
               <a
                 href="/book?type=free"
-                className="shrink-0 px-6 py-3 bg-white text-primary-700 hover:text-orange-600 hover:bg-orange-50 rounded-full font-bold text-sm transition-all hover:scale-105 shadow-lg whitespace-nowrap"
+                className="shrink-0 px-6 py-3 bg-white text-primary-700 hover:bg-primary-50 rounded-full font-bold text-sm transition-all hover:scale-105 shadow-lg whitespace-nowrap"
               >
                 Book Free Session →
               </a>

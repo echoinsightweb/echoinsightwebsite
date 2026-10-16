@@ -163,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 relative overflow-hidden bg-primary-700 text-white">
+      <section className="py-16 md:py-20 relative overflow-hidden bg-primary-600 text-white">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to prioritize your mental health?</h2>
