@@ -36,10 +36,13 @@ When deploying to Vercel, ensure the following environment variables are strictl
 - `NEXTAUTH_SECRET`: Random 32-character string for NextAuth session encryption.
 - `NEXTAUTH_URL`: Your production domain (e.g., `https://echoinsight.in`).
 - `GOOGLE_CLIENT_ID` & `GOOGLE_CLIENT_SECRET`: For Google Admin Login.
+- `GOOGLE_CALENDAR_CLIENT_ID`, `GOOGLE_CALENDAR_CLIENT_SECRET`, `GOOGLE_CALENDAR_REFRESH_TOKEN`: For Google Calendar event creation & Meet link generation.
+- `SMTP_USER` & `SMTP_PASS`: For email notifications (Gmail account and 16-character Google App Password).
 - `CASHFREE_APP_ID`: Your Cashfree API Key (Sandbox or Production).
 - `CASHFREE_SECRET_KEY`: Your Cashfree API Secret.
 - `CASHFREE_ENVIRONMENT`: Backend environment (`SANDBOX` or `PRODUCTION`).
 - `NEXT_PUBLIC_CASHFREE_ENVIRONMENT`: Frontend environment (`sandbox` or `production`) to ensure the SDK opens the correct checkout window.
+- `CRON_SECRET`: Secret key to secure automated background reminder jobs.
 
 ## Recent UI/UX & Branding Enhancements
 - **Official Brand Logo Emblem**: Replaced circular placeholder with high-resolution transparent emblem (`public/new_logo.png`) seamlessly integrated into the navigation header.
